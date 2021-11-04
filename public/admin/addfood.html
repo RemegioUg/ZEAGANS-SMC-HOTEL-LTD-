@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../bootstrap-4.3.1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../fontawesome-free/css/all.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <title>Add Food | Online Food System</title>
+  </head>
+  <body style="background-color: white">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light">
+      <button
+        class="navbar-toggler ml-auto mb-2 bg-light"
+        type="button"
+        data-toggle="collapse"
+        data-target="#myNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+              <a
+                href="#"
+                class="
+                  navbar-brand
+                  text-white
+                  d-block
+                  text-center
+                  py-3
+                  mx-auto
+                  mb-4
+                  border-bottom
+                "
+                >Online Foods</a
+              >
+              <div class="border-bottom pb-3">
+                <a href="#" class="text-white"
+                  >Hello <span id="user">Group 5</span></a
+                >
+              </div>
+              <ul class="navbar-nav flex-column mt-4">
+                <li class="nav-item current">
+                  <a href="home" class="nav-link text-white p-3 mb-2"
+                    ><i class="fas fa-home text-light fa-lg mr-3"></i>Home</a
+                  >
+                </li>
+
+                <li class="nav-item">
+                  <a href="orders" class="nav-link text-white p-3 mb-2"
+                    ><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i
+                    >Orders</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="foods" class="nav-link text-white p-3 mb-2"
+                    ><i class="fas fa-utensils text-light fa-lg mr-3"></i
+                    >Foods</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="customers"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                    ><i class="fas fa-users text-light fa-lg mr-3"></i
+                    >Customers</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="analytics"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                    ><i class="fas fa-chart-line text-light fa-lg mr-3"></i
+                    >Analytics</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- End Sidebar -->
+
+            <!-- Topnavbar -->
+            <div
+              class="
+                col-xl-10 col-lg-9 col-md-8
+                bg-dark
+                ml-auto
+                fixed-top
+                py-2
+                top-navbar
+              "
+            >
+              <div class="row align-items">
+                <div class="col-md-4 mb-0 text-light py-3">
+                  <!-- <a href="address"
+                      ><button class="btn btn-danger">Addresses</button></a
+                    > -->
+                  <h4>DASHBOARD</h4>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-3 py-2">
+                  <ul class="navbar-nav">
+                    <li class="list-item">
+                      <a href="faqs" class="nav-link">
+                        <i class="fas fa-question text-muted fa-2x"></i
+                      ></a>
+                    </li>
+                    <li class="list-item icon-parent">
+                      <a href="#" class="nav-link"
+                        ><span class="text-white icon-bullet">0</span
+                        ><i class="fas fa-bell text-muted fa-2x"></i
+                      ></a>
+                    </li>
+                    <li class="list-item ml-md-auto">
+                      <a
+                        href="#"
+                        class="nav-link"
+                        data-target="#sign-out"
+                        data-toggle="modal"
+                        ><i class="fas fa-power-off text-danger fa-2x"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--End Topnavbar -->
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="sign-out">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Want to Leave?</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">Press Logout to Leave</div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-success">
+              Stay Here
+            </button>
+            <button type="button" class="btn btn-danger" id="logout">
+              Log Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Logout Modal -->
+
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row pt-md-5 mt-md-3 align-items-center">
+              <div class="col-xl-10 m-auto">
+                <h4 class="text-center m-3">Add Food</h4>
+                <form
+                  action="/add-food"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="productname">Food Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        required
+                        placeholder="Food Name"
+                        name="food"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="price">Quantity Available</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        required=""
+                        placeholder="Quantity"
+                        name="qty"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <br />
+
+                  <div class="form-group">
+                    <label for="description">Brief Description</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      required=""
+                      placeholder="Such as One Plate"
+                      name="description"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <br />
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="productname">Price</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        required
+                        placeholder="Price(UGX)"
+                        name="price"
+                        autocomplete="off"
+                        id="price"
+                      />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="price">Discount</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Discount(UGX)"
+                        name="discount"
+                        autocomplete="off"
+                        id="discount"
+                      />
+                      <span id="discount_message"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="category">Select Category</label>
+                    <select class="form-control" name="category" required>
+                      <option value="" hidden>Please Select a Category</option>
+                      <option value="Breakfast">Breakfast</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Supper">Supper</option>
+                    </select>
+                  </div>
+
+                  <br />
+                  <div class="row">
+                    <div class="col-xl-6 col-12">
+                      <div style="width: 400px">
+                        <div
+                          class="custom-file-container"
+                          data-upload-id="myUpload"
+                        >
+                          <label for="Fileupload"
+                            >Main Image
+                            <a
+                              href="javascript:void(0)"
+                              class="custom-file-container__image-clear"
+                              >&times;</a
+                            ></label
+                          >
+                          <label class="custom-file-container__custom-file"
+                            ><input
+                              type="file"
+                              class="
+                                custom-file-container__custom-file__custom-file-input
+                                filing
+                              "
+                              accept="image/*"
+                              name="images"
+                              required
+                            />
+
+                            <span
+                              class="
+                                custom-file-container__custom-file__custom-file-control
+                              "
+                            ></span>
+                          </label>
+                          <div
+                            class="custom-file-container__image-preview"
+                            style="overflow: hidden"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-warning text-light btn-block my-3">
+                    Add Food
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row border-top pt-3">
+              <div class="col-lg-6 text-center">
+                <ul class="list-inline">
+                  <li class="list-inline-item mr-2">
+                    <a href="#" class="text-dark">Online Foods</a>
+                  </li>
+                  <li class="list-inline-item mr-2">
+                    <a href="#" class="text-dark">About</a>
+                  </li>
+                  <li class="list-inline-item mr-2">
+                    <a href="#" class="text-dark">Support</a>
+                  </li>
+                  <li class="list-inline-item mr-2">
+                    <a href="#" class="text-dark">Blog</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6 text-center">
+                <p>
+                  &copy; <span id="year"></span> Copy Right Made With
+                  <i class="fas fa-heart text-danger"></i>by
+                  <span class="text-success">Online Foods</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--Scripts-->
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src=" https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
+    <script>
+      //images
+      const upload = new FileUploadWithPreview("myUpload");
+    </script>
+    <script src="./script.js"></script>
+  </body>
+</html>

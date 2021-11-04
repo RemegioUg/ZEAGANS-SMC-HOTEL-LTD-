@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customers | Online Foods</title>
+    <link
+      rel="stylesheet"
+      href="../bootstrap-4.3.1/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fontawesome-free/css/all.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light">
+      <button
+        class="navbar-toggler ml-auto mb-2 bg-light"
+        type="button"
+        data-toggle="collapse"
+        data-target="#myNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+              <a
+                href="#"
+                class="
+                  navbar-brand
+                  text-white
+                  d-block
+                  text-center
+                  py-3
+                  mx-auto
+                  mb-4
+                  border-bottom
+                "
+                >Online Foods</a
+              >
+              <div class="border-bottom pb-3">
+                <a href="#" class="text-white"
+                  >Hello <span id="user">Group 5</span></a
+                >
+              </div>
+              <ul class="navbar-nav flex-column mt-4">
+                <li class="nav-item">
+                  <a href="home" class="nav-link text-white p-3 mb-2"
+                    ><i class="fas fa-home text-light fa-lg mr-3"></i>Home</a
+                  >
+                </li>
+
+                <li class="nav-item">
+                  <a href="orders" class="nav-link text-white p-3 mb-2"
+                    ><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i
+                    >Orders</a
+                  >
+                </li>
+                <li class="nav-item current">
+                  <a href="foods" class="nav-link text-white p-3 mb-2"
+                    ><i class="fas fa-utensils text-light fa-lg mr-3"></i
+                    >Foods</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="customers"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                    ><i class="fas fa-users text-light fa-lg mr-3"></i
+                    >Customers</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="analytics"
+                    class="nav-link text-white p-3 mb-2 sidebar-link"
+                    ><i class="fas fa-chart-line text-light fa-lg mr-3"></i
+                    >Analytics</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- End Sidebar -->
+
+            <!-- Topnavbar -->
+            <div
+              class="
+                col-xl-10 col-lg-9 col-md-8
+                bg-dark
+                ml-auto
+                fixed-top
+                py-2
+                top-navbar
+              "
+            >
+              <div class="row align-items">
+                <div class="col-md-4 mb-0 text-light py-3">
+                  <!-- <a href="address"
+                      ><button class="btn btn-danger">Addresses</button></a
+                    > -->
+                  <h4>DASHBOARD</h4>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-3 py-2">
+                  <ul class="navbar-nav">
+                    <li class="list-item">
+                      <a href="faqs" class="nav-link">
+                        <i class="fas fa-question text-muted fa-2x"></i
+                      ></a>
+                    </li>
+                    <li class="list-item icon-parent">
+                      <a href="#" class="nav-link"
+                        ><span class="text-white icon-bullet">0</span
+                        ><i class="fas fa-bell text-muted fa-2x"></i
+                      ></a>
+                    </li>
+                    <li class="list-item ml-md-auto">
+                      <a
+                        href="#"
+                        class="nav-link"
+                        data-target="#sign-out"
+                        data-toggle="modal"
+                        ><i class="fas fa-power-off text-danger fa-2x"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--End Topnavbar -->
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="sign-out">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Want to Leave?</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">Press Logout to Leave</div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-success">
+              Stay Here
+            </button>
+            <button type="button" class="btn btn-danger" id="logout">
+              Log Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Logout Modal -->
+
+    <!-- Remove Modal -->
+    <div class="modal fade" id="rUser">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Want to Remove Customer?</h5>
+          </div>
+          <div class="modal-body text-center" id="remove">
+            Press Ok to Continue
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success btn-sm"
+              id="removeUser"
+            >
+              Ok
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              data-dismiss="modal"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Remove -->
+
+    <section>
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+            <div class="row pt-md-5 mt-md-3 align-items-center">
+              <div class="col-xl-11 mx-auto text-center">
+                <div class="card rounded my-3">
+                  <div class="card-body">
+                    <nav class="navbar navbar-light bg-light">
+                      <div class="container-fluid">
+                        <a class="navbar-brand"
+                          >Available Customers<span id="customers"></span
+                        ></a>
+
+                        <form class="d-flex">
+                          <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Customer Name"
+                            aria-label="Search"
+                            id="sorder"
+                          />
+                        </form>
+                      </div>
+                    </nav>
+                    <div class="table-responsive">
+                      <table class="table table-striped bg-light text-left">
+                        <thead>
+                          <th>Username</th>
+                          <th>Email</th>
+                          <th></th>
+                        </thead>
+                        <tbody id="customer"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let data = new XMLHttpRequest();
+      data.onreadystatechange = () => {
+        if (data.readyState == 4 && data.status == 200) {
+          let items = JSON.parse(data.responseText);
+          let rows = "";
+          items.forEach((i) => {
+            rows += `
+            <tr>
+              <td>${i.customer_username}</td>
+              <td>${i.customer_email}</td>
+              <td>
+                <button class="btn btn-danger delete" data-target="#rUser" data-toggle="modal"
+                data-id="${i.customer_id}">Delete</button>
+              </td>
+            </tr>
+            `;
+          });
+          document.getElementById("customer").innerHTML = rows;
+          document.querySelectorAll(".delete").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              localStorage.setItem("deleteUser", e.target.dataset.id);
+            });
+          });
+        }
+      };
+      data.open("GET", "/api/admin/customer", true);
+      data.send();
+
+      document.getElementById("removeUser").addEventListener("click", (e) => {
+        let data = new XMLHttpRequest();
+        data.onreadystatechange = () => {
+          if (data.readyState < 4) {
+            document.getElementById(
+              "remove"
+            ).innerHTML = `<i class="fas fa-spinner fa-spin fa-2x text-warning"></i>`;
+          }
+          if (data.readyState == 4 && data.status == 200) {
+            if (data.responseText == "ok") {
+              localStorage.removeItem("deleteUser");
+              window.location.assign("customers");
+            }
+          }
+        };
+        data.open(
+          "GET",
+          `/api/admin/delete-customer/${JSON.parse(
+            localStorage.getItem("deleteUser")
+          )}`,
+          true
+        );
+        data.send();
+      });
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src=" https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

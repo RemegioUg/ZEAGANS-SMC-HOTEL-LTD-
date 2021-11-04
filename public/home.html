@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./fontawesome-free/css/all.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <title>Online Food System | Order Food Now</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!--Header-->
+    <header>
+      <a href="home"
+        ><img src="./resources/logo.png" height="50" width="100"
+      /></a>
+      <div id="menubar" class="fas fa-bars"></div>
+      <nav class="navbar">
+        <a href="#breakfast">Breakfast</a>
+        <a href="#lunch">Lunch</a>
+        <a href="#supper">Supper</a>
+        <a href="/">My Account</a>
+        <a href="cart">My Cart</a>
+        <a href="#" id="logout" class="btns">Logout</a>
+        <a href="./editProfile" class="btns">Edit Profile</a>
+      </nav>
+    </header>
+    <!--Header-->
+
+    <!--Home Section-->
+    <section class="home" id="home">
+      <div class="content">
+        <h3>Food Made With Love</h3>
+        <p>
+          Order food online from top restaurants in Lira city, Food, drinks
+          delivery to your doorstep.
+         Track Your Order. Meals in Minutes. Best Prices Guaranteed.
+          Quick Delivery.
+        </p>
+        <a href="#" class="btns">Order Now</a>
+      </div>
+      <div class="image">
+        <img src="./resources/image-one.jpg" alt="Food" />
+      </div>
+    </section>
+    <!--Home Section-->
+
+    <!--Special Section-->
+    <section class="popular" id="breakfast">
+      <h1 class="heading">Our <span>Breakfast</span></h1>
+      <div class="box-container" id="bf"></div>
+    </section>
+    <!--Special Section-->
+
+    <!--Popular Section-->
+    <section class="popular" id="lunch">
+      <h1 class="heading">Delicious<span> Lunch </span></h1>
+      <div class="box-container" id="lh"></div>
+    </section>
+    <!--Popular Section-->
+
+    <!--Steps-->
+    <!-- <section class="steps" id="steps">
+      <div class="box">
+        <img src="./resources/icon.png" alt="" />
+        <h3>Choose favourite food</h3>
+      </div>
+      <div class="box">
+        <img src="./resources/icon.png" alt="" />
+        <h3>Free and fast delivery</h3>
+      </div>
+      <div class="box">
+        <img src="./resources/icon.png" alt="" />
+        <h3>Easy payment methods</h3>
+      </div>
+      <div class="box">
+        <img src="./resources/icon.png" alt="" />
+        <h3>Finally enjoy your food</h3>
+      </div>
+    </section> -->
+    <!--Steps-->
+
+    <!--Gallery-->
+    <section class="popular" id="supper">
+      <h1 class="heading">Delicious <span>Supper </span>Meals</h1>
+      <div class="box-container" id="sp"></div>
+    </section>
+    <!--Gallery-->
+
+    <!--Footer-->
+    <section class="footer">
+      <div class="share">
+        <a href="#" class="btns">facebook</a>
+        <a href="#" class="btns">twitter</a>
+        <a href="#" class="btns">instagram</a>
+        <a href="#" class="btns">email</a>
+      </div>
+      <h1 class="credit">
+        Created by <span>Group 5</span> | all rights reserved
+      </h1>
+    </section>
+    <!--Footer-->
+
+    <!--Scroll Button-->
+    <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+    <!--Scroll Button-->
+    <script>
+      window.__lc = window.__lc || {};
+      window.__lc.license = 13243881;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    </script>
+    <noscript><a href="https://www.livechatinc.com/chat-with/13243881/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
+    <script src="./main.js"></script>
+
+    <script>
+      const food = new XMLHttpRequest();
+      food.onreadystatechange = () => {
+        if (food.status == 200 && food.readyState == 4) {
+          let foods = JSON.parse(food.responseText);
+          let breakfast = "";
+          let lunch = "";
+          let supper = "";
+          foods.forEach((category) => {
+            if (category.food_category == "Breakfast") {
+              breakfast += `
+              <div class="box">
+          <span class="price">UGX ${category.food_prices}</span>
+          <img src="./uploads/${
+            JSON.parse(category.food_images)[0]
+          }" alt="Food" />
+          <h3>${category.food_name}</h3>     
+          <button type="button" class="btns cart" data-id="${
+            category.food_id
+          }">Add to Cart</button>
+         </div>
+          `;
+            } else if (category.food_category == "Lunch") {
+              lunch += ` <div class="box">
+          <span class="price">UGX ${category.food_prices}</span>
+          <img src="./uploads/${
+            JSON.parse(category.food_images)[0]
+          }" alt="Food" />
+          <h3>${category.food_name}</h3>
+          <button type="button" class="btns cart" data-id="${
+            category.food_id
+          }">Add to Cart</button>
+         </div>`;
+            } else if (category.food_category == "Supper") {
+              supper += `<div class="box">
+          <span class="price">UGX ${category.food_prices}</span>
+          <img src="./uploads/${
+            JSON.parse(category.food_images)[0]
+          }" alt="Food" />
+          <h3>${category.food_name}</h3>
+          <button type="buttom" class="btns cart" data-id="${
+            category.food_id
+          }">Add to Cart</button>
+         </div>`;
+            }
+          });
+          document.getElementById("bf").innerHTML = breakfast;
+          document.getElementById("lh").innerHTML = lunch;
+          document.getElementById("sp").innerHTML = supper;
+
+          document.querySelectorAll(".cart").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              let cartItems = [];
+              if (!localStorage.getItem("user/onlineFoods")) {
+                window.location.assign("./index");
+              } else {
+                if (!localStorage.getItem("onlineCart")) {
+                  cartItems.push({
+                    cartItemAdded: e.target.dataset.id,
+                    cartNumber: 1,
+                  });
+                  localStorage.setItem("onlineCart", JSON.stringify(cartItems));
+                  window.location.assign("./cart");
+                } else {
+                  let items = JSON.parse(localStorage.getItem("onlineCart"));
+                  let item = items.find(
+                    (i) => i.cartItemAdded === e.target.dataset.id
+                  );
+                  if (!item) {
+                    items.push({
+                      cartItemAdded: e.target.dataset.id,
+                      cartNumber: 1,
+                    });
+                    localStorage.setItem("onlineCart", JSON.stringify(items));
+                    window.location.assign("./cart");
+                  }
+                }
+              }
+            });
+          });
+        }
+      };
+      food.open("GET", "/api/admin/food", true);
+      food.send();
+    </script>
+  </body>
+</html>

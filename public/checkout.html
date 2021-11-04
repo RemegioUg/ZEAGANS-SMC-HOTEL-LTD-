@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Online Foods</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .overview {
+      width: 100vw;
+      max-width: 100%;
+      font-size: 13px;
+    }
+    .overview-ctr {
+      width: 75%;
+      margin: 45px auto;
+      position: relative;
+      min-height: fit-content;
+    }
+    .overview .overview-ctr {
+      flex: 1 1 40rem;
+      padding-top: 6.5rem;
+    }
+    .contact-h1 {
+      margin: 20px 0px;
+    }
+    .contact-box {
+      display: flex;
+      background-color: #fff;
+      margin-top: 20px;
+    }
+    .contact-left {
+      flex-basis: 60%;
+      margin-right: 25px;
+      margin-left: 25px;
+      border-radius: 5px;
+    }
+    .contact-right {
+      flex-basis: 60%;
+      padding: 30px;
+      border-radius: 5px;
+      background-color: var(--red);
+      box-shadow: 0px 0px 10px rgba(28, 0, 181, 0.3);
+      color: white;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .contact p {
+      margin-bottom: 50px;
+    }
+    .input-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .input-row .input-group {
+      flex-basis: 45%;
+    }
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      outline: none;
+      padding-bottom: 5px;
+    }
+    textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      outline: none;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    label {
+      margin-bottom: 6px;
+      display: block;
+      color: rgba(75, 19, 75, 0.5);
+    }
+    button {
+      background-color: var(--red);
+      width: 100px;
+      border: none;
+      outline: none;
+      color: #fff;
+      height: 35px;
+      border-radius: 30px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px 0px rgba(28, 0, 181, 0.3);
+    }
+    button:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .contact-left h3 {
+      color: rgba(75, 19, 75, 0.5);
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .contact-right h3 {
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    tr td:first-child {
+      padding-right: 20px;
+    }
+    tr td {
+      padding-top: 20px;
+    }
+  </style>
+  <body>
+    <!--Header-->
+    <header>
+      <a href="home"
+        ><img src="./resources/logo.png" height="50" width="100"
+      /></a>
+      <div id="menubar" class="fas fa-bars"></div>
+      <nav class="navbar">
+        <a href="/">My Account</a>
+        <a href="cart">My Cart</a>
+        <a href="#" id="logout" class="btns">Logout</a>
+        <a href="./editProfile" class="btns">Edit Profile</a>
+      </nav>
+    </header>
+    <!--Header-->
+    <section class="overview">
+      <div class="overview-ctr contact-overview">
+        <h1 class="contact-h1">Checkout</h1>
+        <p>
+          You are about to finish your, <br />
+          Order please fill the form below
+        </p>
+        <div class="contact-box">
+          <div class="contact-left">
+            <h3 style="color: rgba(75, 19, 75, 0.5); margin-top: 15px">
+              Please Fill This Form
+            </h3>
+            <form id="form">
+              <div class="input-row">
+                <div class="input-group">
+                  <label>Total Amount</label>
+                  <p id="total"></p>
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-group">
+                  <label>Address</label>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    id="address"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Payment Method</label>
+                  <select id="method" required>
+                    <option value="" hidden>Select</option>
+                    <option value="cod">Cash on Delivery</option>
+                    <option value="mm">Mobile Money</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit">FINISH ORDER</button>
+            </form>
+          </div>
+          <div class="contact-right">
+            <h3>Reach Us</h3>
+            <table>
+              <tr>
+                <td>Email</td>
+                <td>inquiry@onlinefoods.com</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>
+                  +256 773 345212
+                  <br />
+                  +256 781 240411
+                </td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>
+                  Plot 43 Tax Park Building
+                  <br />
+                  Obote Avenue
+                  <br />
+                  Lira, Uganda
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Footer-->
+    <section class="footer">
+      <div class="share">
+        <a href="#" class="btns">facebook</a>
+        <a href="#" class="btns">twitter</a>
+        <a href="#" class="btns">instagram</a>
+        <a href="#" class="btns">email</a>
+      </div>
+      <h1 class="credit">
+        Created by <span>Group 5</span> | all rights reserved
+      </h1>
+    </section>
+    <!--Footer-->
+    <!--Scroll Button-->
+    <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+    <!--Scroll Button-->
+    <script>
+      window.__lc = window.__lc || {};
+      window.__lc.license = 13243881;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    </script>
+    <noscript><a href="https://www.livechatinc.com/chat-with/13243881/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
+    <script>
+      document.getElementById("total").innerHTML =
+        "UGX" + " " + JSON.parse(localStorage.getItem("cartTotal"));
+
+      document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        let user = {};
+        user.address = document.getElementById("address").value;
+        user.total = localStorage.getItem("cartTotal");
+        user.items = localStorage.getItem("onlineCart");
+        user.method = document.getElementById("method").value;
+        user.id = JSON.parse(
+          localStorage.getItem("user/onlineFoods")
+        )[0].customer_id;
+        let order = new XMLHttpRequest();
+        order.onreadystatechange = () => {
+          if (order.status == 200 && order.readyState == 4) {
+            if (order.responseText == "Order Done") {
+              localStorage.removeItem("onlineCart");
+              localStorage.removeItem("cartTotal");
+              window.location.assign("home");
+            }
+          }
+        };
+        order.open("POST", "/api/admin/new-order", true);
+        order.setRequestHeader("Content-Type", "application/json");
+        order.send(JSON.stringify(user));
+      });
+    </script>
+    <script src="./main.js"></script>
+  </body>
+</html>
